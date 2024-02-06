@@ -1,9 +1,11 @@
 import axios from "axios";
+const ncNewsAPI = axios.create({
+  baseURL: "https://backend-project-u0dl.onrender.com/api",
+});
 
 export const fetchArticles = () => {
-  return axios.get("https://backend-project-u0dl.onrender.com/api/articles/");
+  return ncNewsAPI.get("/articles");
 };
-
-// export const fetchArticles = (articleId = "") => {
-//   return axios.get("");
-// };
+export const fetchArticleById = (article_id) => {
+  return ncNewsAPI.get(`/articles/${article_id}`);
+};
