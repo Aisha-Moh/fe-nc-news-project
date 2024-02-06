@@ -9,3 +9,7 @@ export const fetchArticles = () => {
 export const fetchArticleById = (article_id) => {
   return ncNewsAPI.get(`/articles/${article_id}`);
 };
+
+export const fetchComments = (article_id) => {
+  return ncNewsAPI.get(`/articles/${article_id}/comments`);
+};

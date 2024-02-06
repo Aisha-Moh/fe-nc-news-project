@@ -1,16 +1,34 @@
 import { useEffect, useState } from "react";
 import { fetchArticleById } from "../utils/api";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import Comments from "./Comments";
 
-const ArticleCard = () => {
+export default function ArticleCard() {
   const [articleCard, setArticleCard] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
   const { article_id } = useParams();
 
   useEffect(() => {
-    fetchArticleById(article_id).then((response) => {
-      setArticleCard(response.data.article);
-    });
+    fetchArticleById(article_id)
+      .then((response) => {
+        setArticleCard(response.data.article);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading)
+    return (
+      <div className="loading-container">
+        <p>{`Loading please wait...`}</p>
+      </div>
+    );
+
+  if (error) return <Error error={error} />;
 
   return (
     <>
@@ -19,8 +37,10 @@ const ArticleCard = () => {
       <p>Votes: {articleCard.votes}</p>
       <img src={articleCard.article_img_url}></img>
       <p>{articleCard.body}</p>
-      <button>Comments</button>
+      <Link to={`/articles/${articleCard.article_id}/comments`}>
+        <button>View All Comments</button>
+      </Link>
+      <Comments />
     </>
   );
-};
-export default ArticleCard;
+}

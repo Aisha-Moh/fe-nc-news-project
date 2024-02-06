@@ -4,12 +4,26 @@ import { Link } from "react-router-dom";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles().then((response) => {
-      setArticles(response.data.articles);
-    });
+    fetchArticles()
+      .then((response) => {
+        setArticles(response.data.articles);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading)
+    return (
+      <div className="loading-container">
+        <p>{`Loading please wait...`}</p>
+      </div>
+    );
 
   return (
     <section>
