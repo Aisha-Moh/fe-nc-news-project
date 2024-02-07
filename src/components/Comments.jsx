@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 export default function Comments() {
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -11,6 +12,13 @@ export default function Comments() {
       setComments(response.data.comments);
     });
   }, []);
+
+  if (isLoading)
+    return (
+      <div className="loading-container">
+        <p>{`Loading comments please wait...`}</p>
+      </div>
+    );
 
   return (
     <section>

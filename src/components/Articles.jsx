@@ -21,7 +21,7 @@ export default function Articles() {
   if (isLoading)
     return (
       <div className="loading-container">
-        <p>{`Loading please wait...`}</p>
+        <p>{`Loading articles please wait...`}</p>
       </div>
     );
 

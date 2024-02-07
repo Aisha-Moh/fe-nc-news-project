@@ -11,7 +11,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="topics-dropdown">
-          <button className="dropbtn">Topics</button>
+          <button className="dropbtn">Article topics</button>
           <div class="dropdown-content">
             <Link to="/" className="coding-link">
               Coding
