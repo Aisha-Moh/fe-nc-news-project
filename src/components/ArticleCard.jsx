@@ -3,6 +3,7 @@ import { fetchArticleById } from "../utils/api";
 import { useParams, Link } from "react-router-dom";
 import Comments from "./Comments";
 import ArticleVotes from "./ArticleVotes";
+import CommentAdder from "./CommentAdder";
 
 export default function ArticleCard() {
   const [articleCard, setArticleCard] = useState([]);
@@ -33,15 +34,19 @@ export default function ArticleCard() {
 
   return (
     <>
-      <h3>{articleCard.title}</h3>
-      <p>Author: {articleCard.author}</p>
-      <img src={articleCard.article_img_url}></img>
-      <p>{articleCard.body}</p>
-      <ArticleVotes articleCard={articleCard} />
-      <Link to={`/articles/${articleCard.article_id}/comments`}>
-        <button>View All Comments</button>
-      </Link>
-      <Comments />
+      <div1>
+        <h3>{articleCard.title}</h3>
+        <p>Author: {articleCard.author}</p>
+        <img src={articleCard.article_img_url}></img>
+        <p>{articleCard.body}</p>
+        <ArticleVotes articleCard={articleCard} />
+      </div1>
+      <div2>
+        <CommentAdder />
+      </div2>
+      <div3>
+        <Comments />
+      </div3>
     </>
   );
 }

@@ -7,13 +7,13 @@ export default function ArticleVotes({ articleCard }) {
   function handleUpVote(event) {
     event.preventDefault(
       setVotes(votes + 1),
-      patchVotes(articleCard.article_id)
+      patchVotes(articleCard.article_id, votes)
     );
   }
   function handleDownVote(event) {
     event.preventDefault(
       setVotes(votes - 1),
-      patchVotes(articleCard.article_id)
+      patchVotes(articleCard.article_id, -1)
     );
   }
   return (

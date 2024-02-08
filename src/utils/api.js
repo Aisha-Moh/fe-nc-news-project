@@ -14,10 +14,20 @@ export const fetchComments = (article_id) => {
   return ncNewsAPI.get(`/articles/${article_id}/comments`);
 };
 
-export const patchVotes = (article_id) => {
+export const fetchUsers = () => {
+  return ncNewsAPI.get("/users");
+};
+
+export const patchVotes = (article_id, votes) => {
   return ncNewsAPI
-    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .patch(`/articles/${article_id}`, { inc_votes: votes })
     .then((response) => {
       return response.data.inc_votes;
     });
+};
+export const postComment = (article_id, username, body) => {
+  return ncNewsAPI.post(`/articles/${article_id}/comments`, {
+    username: username,
+    body: body,
+  });
 };
