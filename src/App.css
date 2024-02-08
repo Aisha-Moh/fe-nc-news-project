@@ -1,4 +1,21 @@
-#root {
+.App {
+  background-color: pink;
+}
+
+img {
+  min-width: 250px;
+  min-height: 250px;
+  max-width: 250px;
+  max-height: 250px;
+  -webkit-user-drag: none;
+}
+img:hover {
+  background-color: blue;
+  box-shadow: 0px 0px 2px 2px white;
+  cursor: pointer;
+}
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +56,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */

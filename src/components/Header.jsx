@@ -1,3 +1,7 @@
-export default function Header() {
-  return <h1>NC News</h1>;
+export default function Header({ text }) {
+  return (
+    <header>
+      <h1>{text}</h1>
+    </header>
+  );
 }

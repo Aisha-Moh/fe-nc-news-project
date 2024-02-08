@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "../css/NavBar.css";
+import UserContext from "../contexts/UserContext";
+import { useContext } from "react";
 
 const NavBar = () => {
+  const { currentUser } = useContext(UserContext);
   return (
     <>
       <nav className="top-navbar">
@@ -26,9 +29,17 @@ const NavBar = () => {
         </div>
 
         <div className="nav-right">
-          <Link to="/" className="login-link">
-            Login
+          <Link to="/change-user" className="ChangeUser-link">
+            Change User
           </Link>
+        </div>
+        <div>
+          <p>You are currently logged in as: {currentUser.username}</p>
+          <img
+            src={currentUser.avatar_url}
+            alt={`avatar for user ${currentUser.username}`}
+            className="avatar"
+          ></img>
         </div>
       </nav>
     </>
