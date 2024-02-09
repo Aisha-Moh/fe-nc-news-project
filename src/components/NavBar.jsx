@@ -9,8 +9,8 @@ const NavBar = () => {
     <>
       <nav className="top-navbar">
         <div className="nav-left">
-          <Link to="/" className="home-link">
-            Home
+          <Link to="/" className="home-btn">
+            <button>Home</button>
           </Link>
         </div>
         <div className="topics-dropdown">
@@ -29,11 +29,11 @@ const NavBar = () => {
         </div>
 
         <div className="nav-right">
-          <Link to="/change-user" className="ChangeUser-link">
-            Change User
+          <Link to="/change-user" className="ChangeUser-btn">
+            <button>Change User</button>
           </Link>
         </div>
-        <div>
+        <div className="curr-user">
           <p>You are currently logged in as: {currentUser.username}</p>
           <img
             src={currentUser.avatar_url}

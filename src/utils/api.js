@@ -31,3 +31,7 @@ export const postComment = (article_id, username, body) => {
     body: body,
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return ncNewsAPI.delete(`comments/${comment_id}`);
+};
