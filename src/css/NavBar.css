@@ -6,8 +6,8 @@
 }
 
 .dropbtn {
-  background-color: grey;
-  color: white;
+  background-color: pink;
+  color: black;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -35,11 +35,23 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: pink;
 }
 .topics-dropdown:hover .dropdown-content {
   display: block;
 }
 .topics-dropdown:hover .dropbtn {
   background-color: grey;
+}
+
+Header {
+  color: black;
+  font-family: "DM Serif Display", serif;
+}
+
+.curr-user {
+  color: pink;
+}
+
+.home-link {
 }
